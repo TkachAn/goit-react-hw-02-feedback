@@ -1,0 +1,10 @@
+.feedback {
+  margin: 100px auto;
+  width: 320px;
+  border-radius: 4px;
+  border: solid 1px;
+  padding: 25px;
+}
+p {
+  font-weight: 700;
+}
