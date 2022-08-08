@@ -1,7 +1,6 @@
 import css from './feedBack.module.css';
 import React, { Component } from 'react';
 export default class FeedBack extends Component {
-  // console.log('fff');<button type="button">Increment by {step}</button>
   static defaultProps = {
     InitGood: 0,
     InitNeutral: 0,
@@ -34,11 +33,19 @@ export default class FeedBack extends Component {
     });
   };
 
+  countTotalFeedback = ({ good, neutral, bad }) => {
+    return good + neutral + bad;
+  };
+
+  countPositiveFeedbackPercentage = ({ good, neutral, bad }) => {
+    return good + neutral + bad !== 0
+      ? (good / (good + neutral + bad)) * 100
+      : 0;
+  };
   render() {
     const { good, neutral, bad } = this.state;
-    console.log('this', this);
-    console.log('this.props', this.props);
-    console.log('this.state', this.state);
+    const total = this.countTotalFeedback(this.state);
+    const percent = this.countPositiveFeedbackPercentage(this.state).toFixed(1);
     return (
       <div className={css.feedback}>
         <h2>Please leave feedback</h2>
@@ -55,8 +62,9 @@ export default class FeedBack extends Component {
         <p>good: {good}</p>
         <p>neutral: {neutral}</p>
         <p>bad: {bad}</p>
+        <p>total: {total}</p>
+        <p>positive feedback: {percent}%</p>
       </div>
     );
   }
 }
-// ReactDOM.render(<Counter step={5} />, document.getElementById('root'));
