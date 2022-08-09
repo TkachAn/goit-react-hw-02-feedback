@@ -1,8 +1,11 @@
 import FeedBack from './feedBack/feedBack'; //Counter
 export const App = () => {
   return (
-    <div>
+    <section title="">
       <FeedBack />
-    </div>
+      {/* <Section title="Please leave feedback" /> */}
+      {/* <Statistics good={} neutral={} bad={} total={} positivePercentage={}/> */}
+      {/* <FeedbackOptions options={} onLeaveFeedback={}/> */}
+    </section>
   );
 };
