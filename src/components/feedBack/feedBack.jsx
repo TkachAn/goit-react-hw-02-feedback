@@ -48,22 +48,39 @@ export default class FeedBack extends Component {
     const percent = this.countPositiveFeedbackPercentage(this.state).toFixed(1);
     return (
       <div className={css.feedback}>
-        <h2>Please leave feedback</h2>
-        <button type="button" onClick={this.handleGood}>
-          good
-        </button>
-        <button type="button" onClick={this.handleNeutral}>
-          neutral
-        </button>
-        <button type="button" onClick={this.handleBad}>
-          bad
-        </button>
-        <h2>Statistic</h2>
-        <p>good: {good}</p>
-        <p>neutral: {neutral}</p>
-        <p>bad: {bad}</p>
-        <p>total: {total}</p>
-        <p>positive feedback: {percent}%</p>
+        <div className={css.button}>
+          <h2 className={css.h2}>Please leave feedback</h2>
+          <button type="button" onClick={this.handleGood}>
+            good
+          </button>
+          <button type="button" onClick={this.handleNeutral}>
+            neutral
+          </button>
+          <button type="button" onClick={this.handleBad}>
+            bad
+          </button>
+        </div>
+
+        <h2 className={css.h22}>Statistic</h2>
+        <div className={css.statistic}>
+          <p className={css.p}>
+            good: <span className={css.number}>{good}</span>
+          </p>
+          <p className={css.p}>
+            neutral: <span className={css.number}>{neutral}</span>
+          </p>
+          <p className={css.p}>
+            bad: <span className={css.number}>{bad}</span>
+          </p>
+          <p className={css.p}>
+            total: <span className={css.number}>{total}</span>
+          </p>
+        </div>
+        <div className={css.percent}>
+          <p>
+            positive feedback: <span className={css.number}>{percent}%</span>
+          </p>
+        </div>
       </div>
     );
   }
