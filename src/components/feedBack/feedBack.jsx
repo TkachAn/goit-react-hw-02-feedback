@@ -11,10 +11,11 @@ export default class FeedBack extends Component {
     neutral: this.props.InitNeutral, //0;
     bad: this.props.InitBad, //0;
   };
-  handleGood = ({ val }) => {
+  handleGood = () => {
+    //{ val }
     this.setState(prevState => {
       return {
-        val: prevState.val + 1,
+        good: prevState.good + 1,
       };
     });
   };
