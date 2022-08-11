@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import css from './btnSection.module.css';
 export default class FeedBack extends Component {
   render() {
     const { good, neutral, bad } = this.state;
-
     return (
       <div className={css.feedback}>
         <div className={css.button}>
