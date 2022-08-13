@@ -1,5 +1,6 @@
 import css from './feedBack.module.css';
 import React, { Component } from 'react';
+import { FeedBackBtn } from '../btnSection/btnSection';
 export default class FeedBack extends Component {
   static defaultProps = {
     InitGood: 0,
@@ -11,8 +12,16 @@ export default class FeedBack extends Component {
     neutral: this.props.InitNeutral, //0;
     bad: this.props.InitBad, //0;
   };
+
+  handleBtn = val => {
+    this.setState(prevState => {
+      return {
+        val: prevState.val + 1,
+      };
+    });
+  };
+
   handleGood = () => {
-    //{ val }
     this.setState(prevState => {
       return {
         good: prevState.good + 1,
@@ -43,6 +52,7 @@ export default class FeedBack extends Component {
       ? (good / (good + neutral + bad)) * 100
       : 0;
   };
+
   render() {
     const { good, neutral, bad } = this.state;
     const total = this.countTotalFeedback(this.state);
@@ -51,17 +61,12 @@ export default class FeedBack extends Component {
       <div className={css.feedback}>
         <div className={css.button}>
           <h2 className={css.h2}>Please leave feedback</h2>
-          <button type="button" onClick={this.handleGood}>
-            good
-          </button>
-          <button type="button" onClick={this.handleNeutral}>
-            neutral
-          </button>
-          <button type="button" onClick={this.handleBad}>
-            bad
-          </button>
+          <div>
+            <FeedBackBtn name="good" handle={this.handleGood} />
+            <FeedBackBtn name="neutral" handle={this.handleNeutral} />
+            <FeedBackBtn name="bad" handle={this.handleBad} />
+          </div>
         </div>
-
         <h2 className={css.h22}>Statistic</h2>
         <div className={css.statistic}>
           <p className={css.p}>
