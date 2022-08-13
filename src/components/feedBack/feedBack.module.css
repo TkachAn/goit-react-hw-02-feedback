@@ -71,3 +71,6 @@ button:hover {
 .h22 {
   color: #777;
 }
+.p {
+  display: flex;
+}
