@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import css from './Statistics.module.css';
 export default function Statistics({ good, neutral, bad }) {
   const total = good + neutral + bad;
@@ -23,9 +24,14 @@ export default function Statistics({ good, neutral, bad }) {
       <div className={css.percent}>
         <p>
           positive feedback:{' '}
-          <span className={css.number}>{percent.toFixed(1)}%</span>
+          <span className={css.numb}>{percent.toFixed(1)}%</span>
         </p>
       </div>
     </>
   );
 }
+Statistics.propTypes = {
+  good: PropTypes.number.isRequired,
+  neutral: PropTypes.number.isRequired,
+  bad: PropTypes.number.isRequired,
+};
