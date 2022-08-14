@@ -1,4 +1,4 @@
-.feedback {
+/* .feedback {
   margin: 100px auto;
   width: 240px;
   border-radius: 4px;
@@ -11,15 +11,15 @@
   letter-spacing: 2px;
   padding-top: 10px;
 
-  /* padding-bottom: 10px; */
+
 }
 .button {
   font-size: 16px;
-  /* padding: 1px; */
+
   padding-bottom: 10px;
   color: #fff;
   background-color: darkgray;
-  /* box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); */
+
 }
 button {
   width: 55px;
@@ -39,7 +39,7 @@ button {
 }
 button:hover {
   background: #2ee59d;
-  box-shadow: 0 15px 20px; /* rgba(46, 229, 157, 0.4);*/
+  box-shadow: 0 15px 20px;
   color: white;
   cursor: pointer;
   transform: translateY(-1px);
@@ -50,7 +50,7 @@ button:hover {
 .number {
   width: 100px;
 
-  /* text-align: center; */
+
   font-weight: 700;
 }
 .statistic {
@@ -73,4 +73,4 @@ button:hover {
 }
 .p {
   display: flex;
-}
+} */
