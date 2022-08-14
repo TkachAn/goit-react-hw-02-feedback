@@ -61,7 +61,7 @@ export class App extends Component {
     // const percent = this.countPositiveFeedbackPercentage(this.state).toFixed(1);
     return (
       <div className={css.feedback}>
-        <section title="" className={css.hh}>
+        <section title="Feedback" className={css.hh}>
           <h2>Please leave feedback</h2>
           <div className={css.pp}>
             <FeedbackOptions options="Good" onLeaveFeedback={this.handleGood} />
@@ -72,7 +72,7 @@ export class App extends Component {
             <FeedbackOptions options="Bad" onLeaveFeedback={this.handleBad} />
           </div>
         </section>
-        <section title="">
+        <section title="Statistics">
           {good + neutral + bad > 0 ? (
             <Statistics
               good={good}
