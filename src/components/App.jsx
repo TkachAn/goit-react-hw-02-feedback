@@ -15,32 +15,11 @@ export class App extends Component {
     bad: this.props.InitBad, //0;
   };
 
-  handleBtn = val => {
+  handleBtn = e => {
+    const val = e.currentTarget.name;
     this.setState(prevState => {
       return {
-        val: prevState.val + 1,
-      };
-    });
-  };
-
-  handleGood = () => {
-    this.setState(prevState => {
-      return {
-        good: prevState.good + 1,
-      };
-    });
-  };
-  handleNeutral = () => {
-    this.setState(prevState => {
-      return {
-        neutral: prevState.neutral + 1,
-      };
-    });
-  };
-  handleBad = () => {
-    this.setState(prevState => {
-      return {
-        bad: prevState.bad + 1,
+        [val]: prevState[val] + 1,
       };
     });
   };
@@ -64,12 +43,21 @@ export class App extends Component {
         <section title="Feedback" className={css.hh}>
           <h2>Please leave feedback</h2>
           <div className={css.pp}>
-            <FeedbackOptions options="Good" onLeaveFeedback={this.handleGood} />
             <FeedbackOptions
-              options="Neutral"
-              onLeaveFeedback={this.handleNeutral}
+              name="good"
+              options="Good"
+              onLeaveFeedback={this.handleBtn}
             />
-            <FeedbackOptions options="Bad" onLeaveFeedback={this.handleBad} />
+            <FeedbackOptions
+              name="neutral"
+              options="Neutral"
+              onLeaveFeedback={this.handleBtn}
+            />
+            <FeedbackOptions
+              name="bad"
+              options="Bad"
+              onLeaveFeedback={this.handleBtn}
+            />
           </div>
         </section>
         <section title="Statistics">
