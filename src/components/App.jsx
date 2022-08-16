@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Statistics from './statistics/Statistics';
 import FeedbackOptions from './feedbackOptions/FeedbackOptions';
 import css from './App.module.css';
-// import css from './App.module.css';
 export class App extends Component {
   static defaultProps = {
     InitGood: 0,
@@ -10,9 +9,9 @@ export class App extends Component {
     InitBad: 0,
   };
   state = {
-    good: this.props.InitGood, //0;
-    neutral: this.props.InitNeutral, //0;
-    bad: this.props.InitBad, //0;
+    good: this.props.InitGood,
+    neutral: this.props.InitNeutral,
+    bad: this.props.InitBad,
   };
 
   handleBtn = e => {
