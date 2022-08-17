@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Statistics from './statistics/Statistics';
-import FeedbackOptions from './feedbackOptions/FeedbackOptions';
+import Feedback from './feedback/Feedback';
 import css from './App.module.css';
 export class App extends Component {
   static defaultProps = {
@@ -42,21 +42,9 @@ export class App extends Component {
         <section title="Feedback" className={css.hh}>
           <h2>Please leave feedback</h2>
           <div className={css.pp}>
-            <FeedbackOptions
-              name="good"
-              options="Good"
-              onLeaveFeedback={this.handleBtn}
-            />
-            <FeedbackOptions
-              name="neutral"
-              options="Neutral"
-              onLeaveFeedback={this.handleBtn}
-            />
-            <FeedbackOptions
-              name="bad"
-              options="Bad"
-              onLeaveFeedback={this.handleBtn}
-            />
+            <Feedback name="good" onLeaveFeedback={this.handleBtn} />
+            <Feedback name="neutral" onLeaveFeedback={this.handleBtn} />
+            <Feedback name="bad" onLeaveFeedback={this.handleBtn} />
           </div>
         </section>
         <section title="Statistics">
