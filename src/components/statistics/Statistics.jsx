@@ -23,7 +23,7 @@ export default function Statistics({ good, neutral, bad }) {
       </div>
       <div className={css.percent}>
         <p>
-          positive feedback:
+          positive feedback:<br></br>
           <span className={css.numb}>{percent.toFixed(1)}%</span>
         </p>
       </div>
