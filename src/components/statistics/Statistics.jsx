@@ -1,9 +1,6 @@
 import PropTypes from 'prop-types';
 import css from './Statistics.module.css';
-export default function Statistics({ good, neutral, bad }) {
-  const total = good + neutral + bad;
-  const percent =
-    good + neutral + bad !== 0 ? (good / (good + neutral + bad)) * 100 : 0;
+export default function Statistics({ good, neutral, bad, total, percent }) {
   return (
     <>
       <h2 className={css.h22}>Statistic</h2>
@@ -24,7 +21,7 @@ export default function Statistics({ good, neutral, bad }) {
       <div className={css.percent}>
         <p>
           positive feedback:<br></br>
-          <span className={css.numb}>{percent.toFixed(1)}%</span>
+          <span className={css.numb}>{percent}%</span>
         </p>
       </div>
     </>
@@ -34,4 +31,6 @@ Statistics.propTypes = {
   good: PropTypes.number.isRequired,
   neutral: PropTypes.number.isRequired,
   bad: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  percent: PropTypes.number.isRequired,
 };
