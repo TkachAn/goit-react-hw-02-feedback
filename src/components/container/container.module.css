@@ -1,0 +1,14 @@
+.feedback {
+  margin: 100px auto;
+  width: 260px;
+  border-radius: 4px;
+  border: solid 1px;
+  padding: 25px;
+  text-align: center;
+  font-size: 20px;
+}
+.pp {
+  display: flex;
+  padding: 10px;
+  justify-content: space-around;
+}
