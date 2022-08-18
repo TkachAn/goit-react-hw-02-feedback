@@ -3,7 +3,7 @@ import css from './Statistics.module.css';
 export default function Statistics({ good, neutral, bad, total, percent }) {
   return (
     <>
-      <h2 className={css.h22}>Statistic</h2>
+      {/* <h2 className={css.h22}>Statistic</h2> */}
       <div className={css.statistic}>
         <p className={css.p}>
           good: <span className={css.number}>{good}</span>
