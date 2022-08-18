@@ -13,26 +13,17 @@
   font-size: 16px;
   font-weight: 700;
   letter-spacing: 2px;
-  /* text-align: left; */
   padding: 10px;
   background-color: darkgrey;
   color: #fff;
-  /* box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5); */
 }
 .statistic {
   color: #555;
   text-align: right;
   padding: 0 40px 10px;
+  background-color: #fff;
 }
-/* .perc {
-  font-weight: 700;
-  letter-spacing: 2px;
-  text-align: left;
-  padding: 10px;
-  background-color: darkgrey;
-  color: #fff;
-  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
-} */
+
 .numb {
   font-size: 26px;
   width: 100px;
