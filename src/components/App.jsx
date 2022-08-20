@@ -4,6 +4,7 @@ import FeedbackOptions from './feedback/FeedbackOptions';
 import Section from 'components/Section/Section';
 import Container from './container/container';
 import css from './container/container.module.css';
+import Notification from './Notification/Notification';
 export class App extends Component {
   state = {
     good: 0,
@@ -11,28 +12,24 @@ export class App extends Component {
     bad: 0,
   };
 
-  handleBtn = e => {
-    const val = e.currentTarget.name;
-    this.setState(prevState => {
-      return {
-        [val]: prevState[val] + 1,
-      };
-    });
+  handleBtn = option => {
+    this.setState(state => ({
+      [option]: state[option] + 1,
+    }));
   };
-
-  countTotalFeedback = ({ good, neutral, bad }) => {
+  totalFeedback = ({ good, neutral, bad }) => {
     return good + neutral + bad;
   };
 
-  countPositiveFeedbackPercentage = ({ good, neutral, bad }) => {
+  positiveFeedbackPercentage = ({ good, neutral, bad }) => {
     return good + neutral + bad > 0 ? (good / (good + neutral + bad)) * 100 : 0;
   };
 
   render() {
     const { good, neutral, bad } = this.state;
-    const total = this.countTotalFeedback(this.state);
+    const total = this.totalFeedback(this.state);
     const positivePercentage = Number(
-      this.countPositiveFeedbackPercentage(this.state).toFixed(1)
+      this.positiveFeedbackPercentage(this.state).toFixed(1)
     );
     return (
       <Container className={css.feedback}>
@@ -41,19 +38,14 @@ export class App extends Component {
             {/* <h3>Please leave feedback</h3> */}
             <div className={css.pp}>
               <FeedbackOptions
-                options="good"
+                options={Object.keys(this.state)}
                 onLeaveFeedback={this.handleBtn}
               />
-              <FeedbackOptions
-                options="neutral"
-                onLeaveFeedback={this.handleBtn}
-              />
-              <FeedbackOptions options="bad" onLeaveFeedback={this.handleBtn} />
             </div>
           </div>
         </Section>
         <Section title="Statistics">
-          {good + neutral + bad > 0 ? (
+          {total ? (
             <Statistics
               good={good}
               neutral={neutral}
@@ -62,7 +54,7 @@ export class App extends Component {
               percent={positivePercentage}
             />
           ) : (
-            <div className={css.perc}>There is no feedback</div>
+            <Notification message="There is no feedback" />
           )}
         </Section>
       </Container>
